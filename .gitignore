@@ -1,2 +1,7 @@
 .mypy_cache
 tmp
+test
+
+file_operator/.mypy_cache
+file_operator/tmp
+file_operator/test

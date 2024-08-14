@@ -1,0 +1,8 @@
+setup.py
+file_operator/__init__.py
+file_operator/get_files_from_dir.py
+file_operator/save.py
+file_operator.egg-info/PKG-INFO
+file_operator.egg-info/SOURCES.txt
+file_operator.egg-info/dependency_links.txt
+file_operator.egg-info/top_level.txt
