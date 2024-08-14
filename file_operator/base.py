@@ -82,6 +82,7 @@ def instance_to_dict(instance: Any, properties_list: list[str]) -> dict:
     """
     return {property: instance.__dict__[property] for property in properties_list}
 
+
 if __name__ == "__main__":
     create_directory("tmp")
     dirname = make_dir_name()

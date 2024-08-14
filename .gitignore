@@ -6,3 +6,5 @@ file_operator/.mypy_cache
 file_operator/tmp
 file_operator/test
 file_operator/__pycache__
+
+file_operator.egg-info

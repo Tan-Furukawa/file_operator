@@ -1,5 +1,6 @@
 import yaml
 
+
 def yaml_dump(instance_dict: dict) -> str:
     """same as yaml.dump
 
@@ -11,7 +12,17 @@ def yaml_dump(instance_dict: dict) -> str:
     """
     return yaml.dump(instance_dict)
 
+
 def read_yaml(path: str) -> None:
+    """
+    Reads a YAML file and returns its contents as a dictionary.
+
+    Args:
+        path (str): Path to the YAML file.
+
+    Returns:
+        dict: Contents of the YAML file.
+    """
     with open(path, "r") as yml:
         res = yaml.safe_load(yml)
     return res
