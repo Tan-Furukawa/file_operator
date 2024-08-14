@@ -1,0 +1,90 @@
+result/
+├── output_2024-08-08-19-16-40
+│   ├── con1_13396.npy
+│   ├── con1_1.npy
+│   ├── con2_13396.npy
+│   ├── con2_1.npy
+│   └── test.yaml
+├── output_2024-08-08-19-17-55
+│   ├── con1_15000.npy
+│   ├── con1_1.npy
+│   ├── con1_30000.npy
+│   ├── con1_45000.npy
+│   ├── con2_15000.npy
+│   ├── con2_1.npy
+│   ├── con2_30000.npy
+│   ├── con2_45000.npy
+│   └── test.yaml
+├── output_2024-08-08-19-23-14
+│   ├── con1_15000.npy
+│   ├── con1_1.npy
+│   ├── con1_30000.npy
+│   ├── con1_45000.npy
+│   ├── con1_60000.npy
+│   ├── con2_15000.npy
+│   ├── con2_1.npy
+│   ├── con2_30000.npy
+│   ├── con2_45000.npy
+│   ├── con2_60000.npy
+│   └── test.yaml
+├── output_2024-08-08-19-28-42
+│   ├── con1_15000.npy
+│   ├── con1_1.npy
+│   ├── con2_15000.npy
+│   ├── con2_1.npy
+│   └── test.yaml
+├── output_2024-08-08-19-30-52
+│   ├── con1_1.npy
+│   ├── con2_1.npy
+│   └── test.yaml
+├── output_2024-08-08-19-31-13
+│   ├── con1_1.npy
+│   ├── con2_1.npy
+│   └── test.yaml
+├── output_2024-08-08-19-31-19
+│   ├── con1_1.npy
+│   ├── con2_1.npy
+│   └── test.yaml
+├── output_2024-08-08-19-32-04
+│   ├── con1_1.npy
+│   ├── con2_1.npy
+│   └── test.yaml
+├── output_2024-08-08-19-32-22
+│   ├── con1_15000.npy
+│   ├── con1_1.npy
+│   ├── con1_24719.npy
+│   ├── con2_15000.npy
+│   ├── con2_1.npy
+│   ├── con2_24719.npy
+│   └── test.yaml
+├── output_2024-08-08-19-34-38
+│   ├── con1_1.npy
+│   ├── con2_1.npy
+│   └── test.yaml
+├── output_2024-08-08-19-35-07
+│   ├── con1_10002.npy
+│   ├── con1_1.npy
+│   ├── con2_10002.npy
+│   ├── con2_1.npy
+│   └── test.yaml
+└── output_2024-08-08-19-36-00
+    ├── con1_15000.npy
+    ├── con1_18380.npy
+    ├── con1_1.npy
+    ├── con2_15000.npy
+    ├── con2_18380.npy
+    ├── con2_1.npy
+    └── test.yaml
+
+12 directories, 64 files
+
+[
+    {
+        "dir_name": output_2024-08-08-19-16-40
+        "file_list": [ [con1_13396.npy, con2_13396.npy],
+                       [con1_1.npy, con2_1.npy],
+                       ...]
+        "information": test.yamlの情報
+    },
+    ...
+]
