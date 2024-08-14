@@ -1,6 +1,5 @@
 # %%
-import yaml
-from typing import Callable, Any
+from typing import Callable
 import os
 import glob
 
@@ -56,38 +55,6 @@ def generate_file_path_dict(file_name_list: list[str]) -> list[dict[str, str]]:
     for file_name in file_name_list:
         file_dict_list.append({"file_path": file_name})
     return file_dict_list
-
-
-def generate_file_path_and_yaml_info(file_name_list: list[str]) -> list[dict[str, Any]]:
-    """
-    Generates a list of dictionaries where each dictionary contains a file path as the key,
-    the file name as the value, and additional YAML information if a YAML file exists in the same directory.
-
-    Args:
-        file_name_list (list[str]): A list of file names.
-
-    Returns:
-        list[dict[str, Any]]: A list of dictionaries where each dictionary contains
-                              {"file_path": file_name, "information": yaml_data (if available)}.
-    """
-    file_info_list = []
-
-    for file_name in file_name_list:
-        file_path = os.path.abspath(file_name)
-        file_info = {"file_path": file_name}
-
-        # Check for YAML files in the same directory
-        dir_name = os.path.dirname(file_path)
-        for yaml_file in os.listdir(dir_name):
-            if yaml_file.endswith(".yaml") or yaml_file.endswith(".yml"):
-                yaml_path = os.path.join(dir_name, yaml_file)
-                with open(yaml_path, "r") as f:
-                    yaml_data = yaml.safe_load(f)
-                    file_info["information"] = yaml_data
-                    break
-        file_info_list.append(file_info)
-    return file_info_list
-
 
 def apply_function_to_file_list(
     file_list: list[str], fun: Callable[[str], None]
