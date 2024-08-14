@@ -1,8 +1,8 @@
 # %%
-import yaml
 import datetime
 import os
 import shutil
+import yaml_operation as myYaml
 from typing import Any
 
 
@@ -82,19 +82,6 @@ def instance_to_dict(instance: Any, properties_list: list[str]) -> dict:
     """
     return {property: instance.__dict__[property] for property in properties_list}
 
-
-def dump(instance_dict: dict) -> str:
-    """same as yaml.dump
-
-    Args:
-        instance_dict (dict): _description_
-
-    Returns:
-        str: _description_
-    """
-    return yaml.dump(instance_dict)
-
-
 if __name__ == "__main__":
     create_directory("tmp")
     dirname = make_dir_name()
@@ -109,7 +96,7 @@ if __name__ == "__main__":
 
     my_instance = MyClass("John Doe", 30, "New York")
     instance_dict = instance_to_dict(my_instance, ["name", "age"])
-    yaml_str = yaml.dump(instance_dict)
+    yaml_str = myYaml.yaml_dump(instance_dict)
     save_str("tmp/test.yaml", yaml_str)
 
 

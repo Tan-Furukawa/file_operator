@@ -1,17 +1,8 @@
 # %%
-import seaborn as sns
-import file_operator.save as save
 import yaml
 from typing import Callable, Any
-import re
-import pandas as pd
-import numpy as np
 import os
 import glob
-import matplotlib.pylab as plt
-import cupy as cp
-from phase_field_2d_ternary.matrix_plot_tools import Ternary
-
 
 def numerical_sort_by_underscore(value: str) -> int:
     value = os.path.basename(value)
@@ -105,51 +96,6 @@ def apply_function_to_file_list(
         fun(file)
 
 
-def extract_directory_information(dir_path: str) -> list:
-    result = []
-
-    # ディレクトリの中を走査
-    for subdir_name in os.listdir(dir_path):
-        subdir_path = os.path.join(dir_path, subdir_name)
-
-        if os.path.isdir(subdir_path):
-            # 各サブディレクトリの情報を格納する辞書を作成
-            dir_info = {"dir_name": subdir_name, "file_list": [], "information": None}
-
-            con1_files = []
-            con2_files = []
-
-            # サブディレクトリ内のファイルを走査
-            for file_name in os.listdir(subdir_path):
-                file_path = os.path.join(subdir_path, file_name)
-
-                if file_name.startswith("con1") and file_name.endswith(".npy"):
-                    con1_files.append(file_name)
-                elif file_name.startswith("con2") and file_name.endswith(".npy"):
-                    con2_files.append(file_name)
-                elif file_name == "test.yaml":
-                    with open(file_path, "r") as yaml_file:
-                        dir_info["information"] = yaml.safe_load(yaml_file)
-
-            # con1とcon2のファイルをペアにする
-            for con1_file in sorted(con1_files):
-                matching_number = con1_file.split("_")[1].split(".")[0]
-                con2_file = next(
-                    (
-                        f
-                        for f in con2_files
-                        if f.split("_")[1].split(".")[0] == matching_number
-                    ),
-                    None,
-                )
-                if con2_file:
-                    dir_info["file_list"].append([con1_file, con2_file])
-            result.append(dir_info)
-    return result
-
-
-# %%
-
 if __name__ == "__main__":
     print(get_files_with_extension("tmp/test", "txt"))
     print(get_files_with_extension("tmp-no-exist", "txt"))
@@ -158,16 +104,4 @@ if __name__ == "__main__":
     files = get_files_with_extension(path, "npy")
     # a = generate_file_path_dict(files)
 
-    directory_info = extract_directory_information("tmp/result_tmp")
-    # %%
-    for file in directory_info:
-        con1 = np.load(f"tmp/result_tmp/{file["dir_name"]}/{file["file_list"][-1][0]}")
-        con2 = np.load(f"tmp/result_tmp/{file["dir_name"]}/{file["file_list"][-1][1]}")
-        Ternary.imshow3(con1, con2)
-        plt.show()
-    a = generate_file_path_and_yaml_info(files)
-    b = yaml.dump(a)
-    save.save_str("tmp/test.yaml", b)
-
-    # print(files[2])
 # %%
