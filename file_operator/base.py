@@ -2,9 +2,8 @@
 import datetime
 import os
 import shutil
-import yaml_operation as myYaml
+import file_operator.yaml_operation as myYaml
 from typing import Any
-
 
 def create_directory(directory_name: str = "tmp", force: bool = False) -> None:
     """making new directory (name: default to "tmp")
