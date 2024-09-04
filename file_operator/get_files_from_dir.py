@@ -49,7 +49,9 @@ def numerical_sort_by_underscore(value: str) -> int:
         raise ValueError("invalid input. value should be xxxx_yyy.zzz")
 
 
-def get_files_from_dir(dir_path: str, marker: str = "con") -> list[str]:
+def get_files_from_dir(
+    dir_path: str, marker: str = "con", path_to_dir: str = "res"
+) -> list[str]:
     """
     Retrieves and returns a list of file paths from a specified directory, filtered and sorted based on a marker string.
 
@@ -81,7 +83,7 @@ def get_files_from_dir(dir_path: str, marker: str = "con") -> list[str]:
         - The sorting relies on the `numerical_sort_by_underscore` function, which expects filenames to follow the pattern "xxxx_yyy.zzz".
     """
 
-    file_pattern = os.path.join(dir_path, f"res/*{marker}*")
+    file_pattern = os.path.join(dir_path, f"{path_to_dir}/*{marker}*")
     file_list = glob.glob(file_pattern)
     sorted_file_list = sorted(file_list, key=numerical_sort_by_underscore)
     return sorted_file_list
